@@ -54,6 +54,11 @@ public class App {
             return;
         }
 
+        if (!isUniqueId(id)) {
+            System.out.println("A student with this ID already exists!");
+            return;
+        }
+
         System.out.print("Enter student name: ");
         String name = scanner.nextLine();
         if (StringUtils.isBlank(name)) {
@@ -114,5 +119,15 @@ public class App {
             }
         }
         System.out.println("Student not found.");
+    }
+
+    // Helper method to check if the ID is unique
+    private static boolean isUniqueId(String id) {
+        for (Student student : students) {
+            if (student.getId().equals(id)) {
+                return false; // ID already exists
+            }
+        }
+        return true; // ID is unique
     }
 }
