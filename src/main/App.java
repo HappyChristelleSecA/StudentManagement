@@ -2,9 +2,10 @@ package main;
 
 import model.Student;
 import util.InputValidator;
-import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.apache.commons.lang3.StringUtils;
+
 
 public class App {
     private static ArrayList<Student> students = new ArrayList<>();
@@ -46,39 +47,68 @@ public class App {
         scanner.close();
     }
 
+//    private static void addStudent(Scanner scanner) {
+//        System.out.print("Enter student ID (S-XXXX): ");
+//        String id = scanner.nextLine();
+//        if (!InputValidator.isValidId(id)) {
+//            System.out.println("Invalid ID format!");
+//            return;
+//        }
+//
+//        System.out.print("Enter student name: ");
+//        String name = scanner.nextLine();
+//        if (StringUtils.isBlank(name)) {
+//            System.out.println("Name cannot be empty!");
+//            return;
+//        }
+//
+//        System.out.print("Enter student age: ");
+//        int age = scanner.nextInt();
+//
+//        System.out.print("Enter student GPA: ");
+//        double gpa = scanner.nextDouble();
+//        if (!InputValidator.isValidGPA(gpa)) {
+//            System.out.println("Invalid GPA value!");
+//            return;
+//        }
+//
+//        students.add(new Student(id, name, age, gpa));
+//        System.out.println("Student added successfully!");
+//    }
     private static void addStudent(Scanner scanner) {
-        System.out.print("Enter student ID (S-XXXX): ");
-        String id = scanner.nextLine();
-        if (!InputValidator.isValidId(id)) {
-            System.out.println("Invalid ID format!");
-            return;
-        }
-
-        if (!isUniqueId(id)) {
-            System.out.println("A student with this ID already exists!");
-            return;
-        }
-
-        System.out.print("Enter student name: ");
-        String name = scanner.nextLine();
-        if (StringUtils.isBlank(name)) {
-            System.out.println("Name cannot be empty!");
-            return;
-        }
-
-        System.out.print("Enter student age: ");
-        int age = scanner.nextInt();
-
-        System.out.print("Enter student GPA: ");
-        double gpa = scanner.nextDouble();
-        if (!InputValidator.isValidGPA(gpa)) {
-            System.out.println("Invalid GPA value!");
-            return;
-        }
-
-        students.add(new Student(id, name, age, gpa));
-        System.out.println("Student added successfully!");
+    System.out.print("Enter student ID (S-XXXX): ");
+    String id = scanner.nextLine();
+    if (!InputValidator.isValidId(id)) {
+        System.out.println("Invalid ID format!");
+        return;
     }
+
+    if (!isUniqueId(id)) {
+        System.out.println("A student with this ID already exists!");
+        return;
+    }
+
+    System.out.print("Enter student name: ");
+    String name = scanner.nextLine();
+    if (StringUtils.isBlank(name)) {
+        System.out.println("Name cannot be empty!");
+        return;
+    }
+
+    System.out.print("Enter student age: ");
+    int age = scanner.nextInt();
+
+    System.out.print("Enter student GPA: ");
+    double gpa = scanner.nextDouble();
+    if (!InputValidator.isValidGPA(gpa)) {
+        System.out.println("Invalid GPA value!");
+        return;
+    }
+
+    students.add(new Student(id, name, age, gpa));
+    System.out.println("Student added successfully!");
+}
+
 
     private static void displayStudents() {
         if (students.isEmpty()) {
@@ -119,15 +149,5 @@ public class App {
             }
         }
         System.out.println("Student not found.");
-    }
-
-    // Helper method to check if the ID is unique
-    private static boolean isUniqueId(String id) {
-        for (Student student : students) {
-            if (student.getId().equals(id)) {
-                return false; // ID already exists
-            }
-        }
-        return true; // ID is unique
     }
 }

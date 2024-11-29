@@ -1,0 +1,11 @@
+commit e794adcdd93127f642923c8248dc8fd867fe311e
+Author: Happy <durianehappy18@gmail.com>
+Date:   Fri Nov 29 00:30:32 2024 -0500
+
+    Added new validation logic and fixed bugs in the student management system
+
+commit bb2c6cf8cddac0385020ac9b1946497796143c2b
+Author: Happy <durianehappy18@gmail.com>
+Date:   Thu Nov 28 23:20:46 2024 -0500
+
+    Initial commit
